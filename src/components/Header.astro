@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets"
+import heartistLogo from "../assets/images/heartist_logo.svg"
+---
+
+<nav class="w-full h-20">
+  <div class="container mx-auto flex justify-between items-center px-20 h-full">
+    <div class="w-full h-full flex items-center justify-start">
+      <a
+        href="https://www.instagram.com/deka.hrtst"
+        target="_blank"
+        class="uppercase border-b transition-all duration-300 border-transparent hover:border-white"
+        >instagram</a
+      >
+    </div>
+    <div class="">
+      <a href="/">
+        <Image
+          src={heartistLogo}
+          width={350}
+          loading={"eager"}
+          alt="Heartist Logo"
+        />
+      </a>
+    </div>
+    <div class="w-full h-full flex items-center justify-end">
+      <a
+        href="https://www.instagram.com/deka.hrtst"
+        target="_blank"
+        class="uppercase border-b transition-all duration-300 border-transparent hover:border-white"
+        >about</a
+      >
+    </div>
+  </div>
+</nav>
