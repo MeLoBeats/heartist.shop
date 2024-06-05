@@ -4,8 +4,10 @@ import heartistLogo from "../assets/images/heartist_logo.svg"
 ---
 
 <nav class="w-full h-20">
-  <div class="container mx-auto flex justify-between items-center px-20 h-full">
-    <div class="w-full h-full flex items-center justify-start">
+  <div
+    class="container mx-auto flex md:justify-between items-center px-20 h-full"
+  >
+    <div class="w-full h-full hidden md:flex items-center justify-start">
       <a
         href="https://www.instagram.com/deka.hrtst"
         target="_blank"
@@ -13,23 +15,30 @@ import heartistLogo from "../assets/images/heartist_logo.svg"
         >instagram</a
       >
     </div>
-    <div class="">
+    <div
+      class="h-full flex w-full md:w-fit items-center justify-center md:justify-normal"
+    >
       <a href="/">
         <Image
           src={heartistLogo}
-          width={350}
+          class={"w-[100px] h-full md:w-[350px]"}
           loading={"eager"}
           alt="Heartist Logo"
         />
       </a>
     </div>
-    <div class="w-full h-full flex items-center justify-end">
+    <div class="w-full h-full hidden md:flex items-center justify-end">
       <a
         href="https://www.instagram.com/deka.hrtst"
         target="_blank"
         class="uppercase border-b transition-all duration-300 border-transparent hover:border-white"
         >about</a
       >
+    </div>
+    <div class="block md:hidden space-y-1.5 cursor-pointer">
+      <div class="h-0.5 w-6 bg-white"></div>
+      <div class="h-0.5 w-6 bg-white"></div>
+      <div class="h-0.5 w-6 bg-white"></div>
     </div>
   </div>
 </nav>
