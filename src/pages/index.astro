@@ -1,6 +1,5 @@
 ---
-import Header from "../components/Header.astro"
-import "@fontsource/montserrat/300.css"
+import DefaultLayout from "../layouts/DefaultLayout.astro"
 ---
 
 <style is:global>
@@ -21,16 +20,23 @@ import "@fontsource/montserrat/300.css"
   }
 </style>
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Heartist. | By Deka</title>
-  </head>
-  <body class="bg-[#121212] text-white">
-    <div class="bg"></div>
-    <Header />
-  </body>
-</html>
+<DefaultLayout>
+  <div class="h-[calc(100vh-80px)]">
+    <div
+      class="w-full h-full container py-20 px-20 mx-auto flex items-center justify-end"
+    >
+      <video
+        class="w-fit shadow-lg h-full border-4"
+        autoplay
+        loop
+        muted
+        playsinline
+      >
+        <source
+          src="https://storage.googleapis.com/heartist_videos/anims/DEKA%20HRTST%20V1.mp4"
+          type="video/mp4"
+        />
+      </video>
+    </div>
+  </div>
+</DefaultLayout>

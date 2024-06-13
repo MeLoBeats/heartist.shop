@@ -1,0 +1,84 @@
+---
+import DefaultLayout from "../layouts/DefaultLayout.astro"
+import FormInput from "../components/FormInput.astro"
+
+import { init } from "@emailjs/browser"
+
+init({
+  publicKey: "user_uJAd6NA6wgcMMHxeBZTVh",
+  limitRate: {
+    id: "heartist",
+    throttle: 1000,
+  },
+})
+---
+
+<DefaultLayout title="test">
+  <!-- Make a contact form -->
+  <div class="container mx-auto w-full mt-20">
+    <h1 class="text-2xl text-center mb-20 font-light">
+      Contactez moi pour réserver un tableau dès maintenant !
+    </h1>
+    <form
+      name="contact"
+      action=""
+      method="POST"
+      id="form"
+      class="flex flex-col mt-5 items-center justify-center space-y-5 mx-auto w-3/4"
+    >
+      <FormInput label="Votre nom" name="nom" type="text" required />
+      <FormInput label="Votre prénom" name="prenom" type="text" required />
+      <FormInput
+        label="Votre adresse mail"
+        name="email"
+        type="email"
+        required
+      />
+      <FormInput
+        label="Votre message"
+        name="message"
+        type="textarea"
+        required
+      />
+      <button
+        type="submit"
+        class="p-4 bg-black text-white w-full font-semibold hover:bg-white hover:text-black hover:border-black border-2 border-black"
+        >Envoyer</button
+      >
+    </form>
+  </div>
+  <script>
+    const form = document.getElementById("form") as HTMLFormElement | null
+    const sendEmail = (e: any) => {
+      e.preventDefault()
+      try {
+        fetch("https://api.emailjs.com/api/v1.0/email/send", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            service_id: "service_yxbeo3f",
+            template_id: "template_x7z1im4",
+            user_id: "user_uJAd6NA6wgcMMHxeBZTVh",
+            template_params: {
+              name: e.target.nom.value + " " + e.target.prenom.value,
+              reply_to: e.target.email.value,
+              message: e.target.message.value,
+            },
+          }),
+        })
+        // Reset form
+        form!.reset()
+        alert("Votre message a bien été envoyé !")
+        // Redirect to home
+        window.location.href = "/"
+      } catch (error) {
+        form!.reset()
+        alert("Une erreur est survenue veuillez réessayer plus tard.")
+        console.error(error)
+      }
+    }
+    form?.addEventListener("submit", sendEmail)
+  </script>
+</DefaultLayout>

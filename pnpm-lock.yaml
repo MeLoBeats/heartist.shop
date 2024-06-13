@@ -11,6 +11,9 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^5.1.0
     version: 5.1.0(astro@4.9.2)(tailwindcss@3.4.3)
+  '@emailjs/browser':
+    specifier: ^4.3.3
+    version: 4.3.3
   '@fontsource/montserrat':
     specifier: ^5.0.18
     version: 5.0.18
@@ -388,6 +391,11 @@ packages:
       '@babel/helper-string-parser': 7.24.6
       '@babel/helper-validator-identifier': 7.24.6
       to-fast-properties: 2.0.0
+    dev: false
+
+  /@emailjs/browser@4.3.3:
+    resolution: {integrity: sha512-ltpt2S/WVREIBXptxYAVYBvXb2O6yTUYiRUWF8OLikMxlmiGsIgKpgHppikNd4Df0uAav7jCsQKcOJ3TJFUx5g==}
+    engines: {node: '>=14.0.0'}
     dev: false
 
   /@emmetio/abbreviation@2.3.3:
