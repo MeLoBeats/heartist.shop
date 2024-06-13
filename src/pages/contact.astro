@@ -1,16 +1,6 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro"
 import FormInput from "../components/FormInput.astro"
-
-import { init } from "@emailjs/browser"
-
-init({
-  publicKey: "user_uJAd6NA6wgcMMHxeBZTVh",
-  limitRate: {
-    id: "heartist",
-    throttle: 1000,
-  },
-})
 ---
 
 <DefaultLayout title="test">
